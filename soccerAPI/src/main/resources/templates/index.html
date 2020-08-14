@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Hello</title>
+</head>
+<body>
+<h1> API 소개글 </h1>
+<p> Club, Country, Member, Sponsor 총 4개의 카테고리별로 찾으실 수 있습니다. </p>
+<h2>Club</h2>
+<p>
+    /clubapi/v1/clubs : 모든 클럽들의 정보들을 리턴합니다. 페치조인을 이용합니다. 페이징이 불가능합니다.<br/>
+    /clubapi/v2/clubs : 모든 클럽들의 정보들을 리턴합니다. ToOne관계만 fetch를 하고 ToMany는 batch_size 설정을 통해 가져와 페이징이 가능합니다.<br/>
+    /clubapi/v3/clubs : 모든 클럽들의 정보들을 리턴합니다. DTO로 바로 조회하는 방식입니다. DTO로 조회하려하고 클럽 수가 적다면 적절한 방식입니다.<br/>
+    /clubapi/v4/clubs : 모든 클럽들의 정보들을 리턴합니다. DTO로 바로 조회하는 방식입니다. ToOne 관계를 먼저 조회하고, 이곳에서 얻은 식별자를 통해 컬렉션을 한 번에 조회해서 쿼리문이 각 1번씩만 나가게 됩니다.<br/>
+    <br/>
+    /clubapi/queryclub : 얻고 싶은 특정 클럽의 이름을 JSON으로 보내면 해당 정보를 리턴합니다. 위의 api와는 다르게 클럽 소속 선수들과 스폰서의 정보까지 리턴합니다.
+</p>
+
+<h2>Country</h2>
+<p>
+    /countryapi/v1/countries : 모든 나라들의 정보들을 리턴합니다.<br/>
+    /countryapi/v2/countries : 모든 나라들의 정보들을 리턴합니다. DTO로 바로 조회하는 방식입니다. <br/>
+    /countryapi/querycountry : 얻고 싶은 특정 나라의 이름을 JSON으로 보내면 해당 정보를 리턴합니다. 위의 api와는 다르게 국가 소속 선수들의 정보까지 리턴합니다.
+</p>
+
+<h2>Member</h2>
+<p>
+    /memberapi/querymember : 얻고 싶은 특정 선수의 이름을 JSON으로 보내면 해당 정보를 리턴합니다.
+</p>
+
+<h2>Sponsor</h2>
+<p>
+    /sponsorapi/sponsors : 모든 스폰서들의  정보들을 리턴합니다.
+</p>
+</body>
+</html>
